@@ -1,22 +1,6 @@
-# rtimer
-Persistent timer with set and clear
+"use strict";
 
-## Install
-
-	npm install rtimer
-
-## Usage
-
-rtimer has two instance methods `set` and `clear`.
- - `set` restart the timeout
- - `clear` clear the current timeout, timeout can be restarted again after clear
- - `callback` property contains the callback method
- - `delay` property contains the timeout delay
-
-## Example
-
-```js
-var rtimer = require('rtimer');
+var rtimer = require('./index');
 
 var start_time = +new Date();
 
@@ -27,7 +11,7 @@ var timeout = rtimer(function() {
 	var t = (+new Date() - start_time);
 	console.log('time ' + t + ' ms');
 
-	// change timeout delay and callback
+	// re-use timeout with different delay and callback
 	timeout.delay = 500;
 	timeout.callback = function() {
 		console.log('Hello World!');
@@ -41,4 +25,3 @@ setTimeout(function() {
 	timeout.set();
 }, 500);
 
-```
